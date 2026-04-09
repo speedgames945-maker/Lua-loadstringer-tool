@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loadstring Tool</title>
+    <style>
+        body {
+            margin: 0;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: linear-gradient(to bottom, #000 100%, #333 50%);
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        a {
+            text-decoration: none;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 10%;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+        img:hover {
+            opacity: 0.8;
+        }
+        input {
+            padding: 12px;
+            font-size: 1em;
+            border: 2px solid #4A90E2;
+            border-radius: 8px;
+            background: transparent;
+            color: white;
+            text-align: center;
+            outline: none;
+            width: 80%;
+            max-width: 300px;
+            transition: 0.3s;
+        }
+        input::placeholder {
+            color: #bbb;
+        }
+        input:focus {
+            border-color: #357ABD;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 1em;
+            border: none;
+            border-radius: 30px;
+            background-color: #56E231;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+            -webkit-text-stroke: 0.5px black;
+        }
+        button:hover {
+            background-color: #56E231;
+        }
+    </style>
+    <script>
+        function copyLoadstring() {
+            const textBox = document.getElementById("textBox");
+            const loadstringText = `loadstring(game:HttpGet(\"${textBox.value}\",true))()`;
+            navigator.clipboard.writeText(loadstringText);
+        }
+    </script>
+</head>
+<body>
+    <a href="https://github.com/cemakaz" target="_blank">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAMLsBA6hZva2dE831jccBc7MfTZCX3a6OnKHgRuUpIw&s=10" alt="Loadstring Tool Logo">
+    </a>
+    <h1>Lua loadstringer</h1>
+    <p>-this  tool  converting  any  URLS  to a Lua loadstring
+    <strong>!    by devs, for devs</strong></p>
+    <input type="text" id="textBox" placeholder="Enter URL...">
+    <button onclick="copyLoadstring()">Copy Loadstring</button>
+</body>
+</html>
